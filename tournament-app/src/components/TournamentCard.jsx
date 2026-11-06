@@ -1,10 +1,17 @@
+// src/components/TournamentCard.jsx
+
 export function TournamentCard({ title, date, logo, status }) {
+  // Gör om statusen till små bokstäver för att matcha CSS-klassen (t.ex. "Öppen" -> "oppen")
+  const statusClass = status.toLowerCase().replace("ö", "o");
+
   return (
-    <div style={{ border: "1px solid #ccc", borderRadius: "8px", padding: "16px", margin: "10px" }}>
-      <div style={{ fontSize: "2rem" }}>{logo}</div>
-      <h3>{title}</h3>
-      <p>Sista anmälan: {date}</p>
-      <span style={{ background: "#e0e0e0", padding: "4px 8px", borderRadius: "4px" }}>
+    <div className="tournament-card">
+      <div>
+        <div className="tournament-logo">{logo}</div>
+        <h3 className="tournament-title">{title}</h3>
+        <p className="tournament-date">Sista anmälan: {date}</p>
+      </div>
+      <span className={`status-badge ${statusClass}`}>
         {status}
       </span>
     </div>
